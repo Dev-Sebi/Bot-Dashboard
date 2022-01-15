@@ -66,6 +66,7 @@ app.get('/', async (req, res) => {
     midnightinvite: process.env.MidnightInvite,
     tipicoxinvite: process.env.TipicoInvite,
     infinityloungeinvite: process.env.InfinityLoungeInvite,
+    invite: process.env.DISCORD_INVITE,
   })
 });
 
