@@ -76,7 +76,6 @@ app.get('/:bot/terms-of-service', async (req, res) => {
   else if(bot == process.env.Midnight) { res.render(link, { bot: "Midnight" }) }
   else if(bot == process.env.TipicoX) { res.render(link, { bot: "TipicoX" }) }
   else if(bot == process.env.InfinityLounge) { res.render(link, { bot: "Infinity Lounge" }) }
-  else if(bot == process.env.SebisTownhall) { res.render(link, { bot: "Sebis Townhall" }) }
   else return res.json({ message: 'Application does not exist' });
 })
 
@@ -87,7 +86,6 @@ app.get('/:bot/index', async (req, res) => {
   else if(bot == process.env.Midnight) { res.render(link, { bot: "Midnight" }) }
   else if(bot == process.env.TipicoX) { res.render(link, { bot: "TipicoX" }) }
   else if(bot == process.env.InfinityLounge) { res.render(link, { bot: "Infinity Lounge" }) }
-  else if(bot == process.env.SebisTownhall) { res.render(link, { bot: "Sebis Townhall" }) }
   else return res.json({ message: 'Application does not exist' });
 })
 
@@ -98,7 +96,6 @@ app.get('/:bot/developers', async (req, res) => {
   else if(bot == process.env.Midnight) { res.render(link, { bot: "Midnight" }) }
   else if(bot == process.env.TipicoX) { res.render(link, { bot: "TipicoX" }) }
   else if(bot == process.env.InfinityLounge) { res.render(link, { bot: "Infinity Lounge" }) }
-  else if(bot == process.env.SebisTownhall) { res.render(link, { bot: "Sebis Townhall" }) }
   else return res.json({ message: 'Application does not exist' });
 })
 
