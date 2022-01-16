@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/public')); //static directory
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
+// =============== GET =============== //
 app.get('/auth/callback/:bot', async (req, res) => {
   const bot = req.params.bot;
   const code = req.query.code;
@@ -103,6 +103,16 @@ app.get('/:bot/developers', async (req, res) => {
 app.get('/discord', async (req, res) => {
   res.redirect(process.env.DISCORD_INVITE)
 })
+
+
+
+
+// =============== POST =============== //
+const apiv1 = "/api/v1/"
+
+
+
+
 
 //If URL not found redirect to index
 app.get('/*', (req, res) => {
