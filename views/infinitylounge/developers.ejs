@@ -1,7 +1,6 @@
 <%- include('../../templates/header'); -%>
 <title><%= bot %> Control Panel</title>
-
-<body>
+<body onload="SebiAge(), getDevelopers('<%= botname %>')">
 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
@@ -17,11 +16,7 @@
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
+        <!-- End Search Icon-->
 
         <%- include('../../templates/profilenav'); -%>
 
@@ -51,20 +46,56 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Example Card</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
+              <h5 class="card-title"><img src="https://cdn.discordapp.com/avatars/280094303429197844/fb2d6ea4f40814ea10de7596617b3dc6.webp?size=64" alt="Profile" class="rounded-circle">  Sebi <i class="fa fa-check" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Lead Developer"></i></h5>
+              <p>Hey im Sebi, im <a id="age"></a> Years old and come from Germany!</p>
             </div>
           </div>
 
         </div>
 
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><img src="https://cdn.discordapp.com/avatars/278255521629339650/54639a6e7e4b33281eb59f0342ac49b4.webp?size=64" alt="Profile" class="rounded-circle">  MooVoo <i class="fas fa-user-check" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Developer"></i></h5>
+              <p>Hey im MooVoo!</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><img src="https://cdn.discordapp.com/avatars/474732997006852097/17ac9e402b7a067b01ebd9df0c3d546d.webp?size=64" alt="Profile" class="rounded-circle">  Zerul <i class="fas fa-user-check" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Developer"></i></h5>
+              <p>Hey im Zerul!</p>
+            </div>
+          </div>
+
+        </div>
 
         <div class="col-lg-6">
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Example Card</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
+              <h5 class="card-title"><img src="https://cdn.discordapp.com/avatars/603609359989342208/f767092abc8fbd724fc0f5ac177ef743.webp?size=64" alt="Profile" class="rounded-circle">  Vanessa <i class="fas fa-info" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Support"></i>   <i class="fas fa-hammer" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Administration"></i></h5>
+              <p>Hey im Vanessa!</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><img src="https://cdn.discordapp.com/avatars/310115562305093632/d2b7a040ac8101cf52d49c483e9bcafc.webp?size=64" alt="Profile" class="rounded-circle">  N.T.W <i class="fas fa-hammer" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Administration"></i></h5>
+              <p>Hey im N.T.W!</p>
             </div>
           </div>
 
@@ -92,7 +123,6 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <%- include('../../templates/footer'); -%>
-
 </body>
 
 </html>

@@ -93,10 +93,10 @@ app.get('/:bot/index', async (req, res) => {
 app.get('/:bot/developers', async (req, res) => {
   const bot = req.params.bot
   const link = `${bot}/developers.ejs`
-  if(bot == process.env.ThreadManager) { res.render(link, { bot: "Thread Manager" }) }
-  else if(bot == process.env.Midnight) { res.render(link, { bot: "Midnight" }) }
-  else if(bot == process.env.TipicoX) { res.render(link, { bot: "TipicoX" }) }
-  else if(bot == process.env.InfinityLounge) { res.render(link, { bot: "Infinity Lounge" }) }
+  if(bot == process.env.ThreadManager) { res.render(link, { bot: "Thread Manager", botname: process.env.ThreadManager }) }
+  else if(bot == process.env.Midnight) { res.render(link, { bot: "Midnight", botname: process.env.Midnight  }) }
+  else if(bot == process.env.TipicoX) { res.render(link, { bot: "TipicoX", botname: process.env.TipicoX  }) }
+  else if(bot == process.env.InfinityLounge) { res.render(link, { bot: "Infinity Lounge", botname: process.env.InfinityLounge  }) }
   else return res.json({ message: 'Application does not exist' });
 })
 
@@ -109,7 +109,10 @@ app.get('/discord', async (req, res) => {
 
 // =============== POST =============== //
 const apiv1 = "/api/v1/"
-
+const developers = require("./developers.json")
+app.post(apiv1 + 'developers', async (req, res) => {
+  res.json(developers)
+})
 
 
 
