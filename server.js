@@ -106,17 +106,6 @@ app.get('/discord', async (req, res) => {
 
 
 
-
-// =============== POST =============== //
-const apiv1 = "/api/v1/"
-const developers = require("./developers.json")
-app.post(apiv1 + 'developers', async (req, res) => {
-  res.json(developers)
-})
-
-
-
-
 //If URL not found redirect to index
 app.get('/*', (req, res) => {
   res.redirect('/')
