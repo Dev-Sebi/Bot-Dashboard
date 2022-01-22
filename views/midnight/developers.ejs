@@ -1,6 +1,6 @@
 <%- include('../../templates/header'); -%>
 <title><%= bot %> Control Panel</title>
-<body onload=" SebiAge(), LoadDevs('<%= JSON.stringify(devs) %>')">
+<body>
 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
@@ -48,7 +48,7 @@
       
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title"><img src="https://cdn.discordapp.com/avatars/<%- dev.id %>/<%- dev.avatar %>.webp?size=64" alt="Profile" class="rounded-circle"><%- dev.username %> </h5>
+                  <h5 class="card-title"><img src="https://cdn.discordapp.com/avatars/<%- dev.id %>/<%- dev.avatar %>.webp?size=64" alt="Profile" class="rounded-circle">   <%- dev.username %> </h5>
                 </div>
               </div>
           
