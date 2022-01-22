@@ -129,20 +129,20 @@ router.get('/', async (req, res) => {
 router.get('/:bot/terms-of-service', async (req, res) => {
   const bot = req.params.bot
   const link = `${bot}/terms-of-service.ejs`
-  if(bot == process.env.ThreadManager) { res.render(link, { bot: "Thread Manager" }) }
-  else if(bot == process.env.Midnight) { res.render(link, { bot: "Midnight" }) }
-  else if(bot == process.env.TipicoX) { res.render(link, { bot: "TipicoX" }) }
-  else if(bot == process.env.InfinityLounge) { res.render(link, { bot: "Infinity Lounge" }) }
+  if(bot == process.env.ThreadManager) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Thread Manager" }) }
+  else if(bot == process.env.Midnight) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Midnight" }) }
+  else if(bot == process.env.TipicoX) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "TipicoX" }) }
+  else if(bot == process.env.InfinityLounge) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Infinity Lounge" }) }
   else return res.json({ message: 'Application does not exist' });
 })
 
 router.get('/:bot/index', async (req, res) => {
   const bot = req.params.bot
   const link = `${bot}/index.ejs`
-  if(bot == process.env.ThreadManager) { res.render(link, { bot: "Thread Manager" }) }
-  else if(bot == process.env.Midnight) { res.render(link, { bot: "Midnight" }) }
-  else if(bot == process.env.TipicoX) { res.render(link, { bot: "TipicoX" }) }
-  else if(bot == process.env.InfinityLounge) { res.render(link, { bot: "Infinity Lounge" }) }
+  if(bot == process.env.ThreadManager) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Thread Manager" }) }
+  else if(bot == process.env.Midnight) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Midnight" }) }
+  else if(bot == process.env.TipicoX) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "TipicoX" }) }
+  else if(bot == process.env.InfinityLounge) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Infinity Lounge" }) }
   else return res.json({ message: 'Application does not exist' });
 })
 
@@ -151,20 +151,20 @@ router.get('/:bot/developers', async (req, res) => {
   const link = `${bot}/developers.ejs`
   const data = await getDevelopers(bot)
   if(!data) { return res.json({ message: 'Application does not exist' }); }
-  if(bot == process.env.ThreadManager) { res.render(link, { devs: data, bot: "Thread Manager", botname: process.env.ThreadManager }) }
-  else if(bot == process.env.Midnight) { res.render(link, { devs: data, bot: "Midnight", botname: process.env.Midnight  }) }
-  else if(bot == process.env.TipicoX) { res.render(link, { devs: data, bot: "TipicoX", botname: process.env.TipicoX  }) }
-  else if(bot == process.env.InfinityLounge) { res.render(link, { devs: data, bot: "Infinity Lounge", botname: process.env.InfinityLounge  }) }
+  if(bot == process.env.ThreadManager) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, devs: data, bot: "Thread Manager", botname: process.env.ThreadManager }) }
+  else if(bot == process.env.Midnight) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, devs: data, bot: "Midnight", botname: process.env.Midnight  }) }
+  else if(bot == process.env.TipicoX) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, devs: data, bot: "TipicoX", botname: process.env.TipicoX  }) }
+  else if(bot == process.env.InfinityLounge) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, devs: data, bot: "Infinity Lounge", botname: process.env.InfinityLounge  }) }
   else return res.json({ message: 'Application does not exist' });
 })
 
 router.get('/:bot/docs', async (req, res) => {
   const bot = req.params.bot
   const link = `${bot}/docs.ejs`
-  if(bot == process.env.ThreadManager) { res.render(link, { bot: "Thread Manager", botname: process.env.ThreadManager }) }
-  else if(bot == process.env.Midnight) { res.render(link, { bot: "Midnight", botname: process.env.Midnight  }) }
-  else if(bot == process.env.TipicoX) { res.render(link, { bot: "TipicoX", botname: process.env.TipicoX  }) }
-  else if(bot == process.env.InfinityLounge) { res.render(link, { bot: "Infinity Lounge", botname: process.env.InfinityLounge  }) }
+  if(bot == process.env.ThreadManager) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Thread Manager", botname: process.env.ThreadManager }) }
+  else if(bot == process.env.Midnight) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Midnight", botname: process.env.Midnight  }) }
+  else if(bot == process.env.TipicoX) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "TipicoX", botname: process.env.TipicoX  }) }
+  else if(bot == process.env.InfinityLounge) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Infinity Lounge", botname: process.env.InfinityLounge  }) }
   else return res.json({ message: 'Application does not exist' });
 })
 
