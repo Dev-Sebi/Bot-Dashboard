@@ -53,7 +53,6 @@ const forceAuth = (req, res, next) => { // Only connect with login
         profiles.push(profile)
         developers.add(profile)
       }
-      // []
       return profiles
     //}
     //return developers
