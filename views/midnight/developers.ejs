@@ -1,6 +1,6 @@
 <%- include('../../templates/header'); -%>
 <title><%= bot %> Control Panel</title>
-<body onload=" SebiAge()">
+<body onload=" SebiAge(), LoadDevs('<%= JSON.stringify(devs) %>')">
 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
@@ -42,16 +42,18 @@
 
     <section class="section">
       <div class="row">
-        <div class="col-lg-12">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><img src="https://cdn.discordapp.com/avatars/280094303429197844/fb2d6ea4f40814ea10de7596617b3dc6.webp?size=64" alt="Profile" class="rounded-circle">  Sebi <i class="fa fa-check" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Lead Developer"></i></h5>
-              <p>Hey im Sebi, im <a id="age"></a> Years old and come from Germany!</p>
+      
+        <% devs.forEach((dev) => { %>
+          <div class="col-lg-6">
+      
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><img src="https://cdn.discordapp.com/avatars/<%- dev.id %>/<%- dev.avatar %>.webp?size=64" alt="Profile" class="rounded-circle"><%- dev.username %> </h5>
+                </div>
+              </div>
+          
             </div>
-          </div>
-
-        </div>
+          <%}) %>
 
       </div>
     </section>
