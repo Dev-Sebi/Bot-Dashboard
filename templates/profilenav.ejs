@@ -2,13 +2,12 @@
   <ul class="d-flex align-items-center">
 
     <li class="nav-item dropdown pe-3">
+      <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
       <%if(user) {%>
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
           <img src="<%- user.avatarURL %>" alt="Profile" class="rounded-circle">
           <span class="d-none d-md-block dropdown-toggle ps-2">Profile</span>
         </a><!-- End Profile Iamge Icon -->
       <%} else {%>
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
           <span class="d-none d-md-block dropdown-toggle ps-2">Profile</span>
         </a><!-- End Profile Iamge Icon -->
       <%}%>
@@ -58,7 +57,7 @@
             </li>
             <li>
               <a class="dropdown-item d-flex align-items-center" href="/infinitylounge/docs">
-                <img style="max-height: 26px; margin-right: 6px" src="../img/infinity_tp_nav.png">
+                <img style="max-height: 26px; margin-right: 6px" src="../img/infinitylounge_tp_nav.png">
                 <span>Infinity Lounge</span>
               </a>
             </li>

@@ -110,8 +110,8 @@
   /**
    * Initiate tooltips
    */
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+  let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  let tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
   })
 
@@ -182,7 +182,7 @@
    * Initiate TinyMCE Editor
    */
 
-  var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   tinymce.init({
     selector: 'textarea.tinymce-editor',
@@ -280,7 +280,7 @@
   /**
    * Initiate Bootstrap validation check
    */
-  var needsValidation = document.querySelectorAll('.needs-validation')
+  let needsValidation = document.querySelectorAll('.needs-validation')
 
   Array.prototype.slice.call(needsValidation)
     .forEach(function(form) {

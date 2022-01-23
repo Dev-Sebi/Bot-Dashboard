@@ -1,6 +1,9 @@
 <!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
   <ul class="sidebar-nav" id="sidebar-nav">
+
+
+<!-- Not Logged In -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="/">
         <i class="bi bi-house-fill"></i>
@@ -31,5 +34,25 @@
         <span>Discord</span>
       </a>
     </li>
+
+    
+    <!--Needs Login-->
+    <%if(user) {%>
+      <hr>
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Cooming Soon!">
+          <i class="bi bi-gear-fill"></i>
+          <span>Settings</span>&nbsp;<span class="badge bg-secondary">Soon!</span>
+        </a>
+      </li>
+
+
+
+
+
+      <%} else {%>
+        <!--Not Logged In-->
+      <%}%>
   </ul>
 </aside><!-- End Sidebar-->
