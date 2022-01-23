@@ -1,0 +1,90 @@
+<%- include('./header'); -%>
+    <title>
+        <%= bot %> Control Panel
+    </title>
+    <body>
+
+        <!-- ======= Header ======= -->
+        <header id="header" class="header fixed-top d-flex align-items-center">
+
+            <div class="d-flex align-items-center justify-content-between">
+                <a class="logo d-flex align-items-center">
+                    <img src="../img/<%= bot %>_tp.png">
+                    <span class="d-none d-lg-block">
+                        <%= bot %>
+                    </span>
+                </a>
+                <i class="bi bi-list toggle-sidebar-btn"></i>
+            </div><!-- End Logo -->
+
+
+
+            <%- include('./profilenav'); -%>
+
+                </ul>
+                </nav><!-- End Icons Navigation -->
+
+        </header><!-- End Header -->
+
+        <%- include('./sidebar'); -%>
+
+            <main id="main" class="main">
+
+                <div class="pagetitle">
+                    <h1>Developers</h1>
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item">
+                                <%= bot %>
+                            </li>
+                            <li class="breadcrumb-item active">Developers</li>
+                        </ol>
+                    </nav>
+                </div><!-- End Page Title -->
+
+                <section class="section">
+                    <div class="row">
+
+                        <% devs.forEach((dev)=> { %>
+                            <div class="col-lg-6">
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><img
+                                                src="https://cdn.discordapp.com/avatars/<%- dev.id %>/<%- dev.avatar %>.webp?size=64"
+                                                alt="Profile" class="rounded-circle">
+                                            <%- dev.username -%>
+                                        </h5>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <%}) %>
+
+                    </div>
+                </section>
+
+            </main><!-- End #main -->
+
+            <!-- ======= Footer ======= -->
+            <footer id="footer" class="footer">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Sebi</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+            </footer><!-- End Footer -->
+
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                    class="bi bi-arrow-up-short"></i></a>
+
+            <%- include('./footer'); -%>
+    </body>
+
+    </html>

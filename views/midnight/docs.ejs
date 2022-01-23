@@ -7,16 +7,13 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="e">
+        <img src="../img/<%= bot %>_tp.png">
         <span class="d-none d-lg-block"><%= bot %></span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
 
-        <!-- End Search Icon-->
 
         <%- include('../../templates/profilenav'); -%>
 
@@ -41,19 +38,9 @@
     </div><!-- End Page Title -->
 
     <section class="section">
-      <div class="row">
-        <div class="col-lg-12">
 
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><img src="https://cdn.discordapp.com/avatars/280094303429197844/fb2d6ea4f40814ea10de7596617b3dc6.webp?size=64" alt="Profile" class="rounded-circle">  Sebi <i class="fa fa-check" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Lead Developer"></i></h5>
-              <p>Hey im Sebi, im <a id="age"></a> Years old and come from Germany!</p>
-            </div>
-          </div>
+      <%- include('../../templates/midnight_commands'); -%>
 
-        </div>
-
-      </div>
     </section>
 
   </main><!-- End #main -->

@@ -17,7 +17,7 @@
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
           <%if(user) {%>
             <li class="dropdown-header">
-              <h6><%- user.tag %></h6>
+              <h6><%- user.tag -%></h6>
               <span>Version: <%= version %></span>
             </li>
             <%} else {%>
@@ -36,6 +36,30 @@
               <a class="dropdown-item d-flex align-items-center" href="/logout">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Logout</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/threadmanager/docs">
+                <img style="max-height: 26px; margin-right: 6px" src="../img/threadmanager_tp_nav.png">
+                <span>Thread Manager</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/midnight/docs">
+                <img style="max-height: 26px; margin-right: 6px" src="../img/midnight_tp_nav.png">
+                <span>Midnight</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/tipicox/docs">
+                <img style="max-height: 26px; margin-right: 6px" src="../img/tipicox_tp_nav.png">
+                <span>TipicoX</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/infinitylounge/docs">
+                <img style="max-height: 26px; margin-right: 6px" src="../img/infinity_tp_nav.png">
+                <span>Infinity Lounge</span>
               </a>
             </li>
             <%} else {%>
