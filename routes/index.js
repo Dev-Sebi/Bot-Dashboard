@@ -8,55 +8,55 @@ const devs = require('../developers');
 // =============== FUNCTIONS =============== //
 
 const forceAuth = (req, res, next) => { // Only connect with login
-    if (!req.session.user) return res.redirect('/login')
-    else return next();
-  }
-  
-  const validateForData = async function(bot)
-  {
-    if(bot == process.env.ThreadManager) { return devs.ThreadManagerData }
-    else if(bot == process.env.Midnight) { return devs.MidnightData }
-    else if(bot == process.env.TipicoX) { return devs.TipicoXData }
-    else if(bot == process.env.InfinityLounge) { return devs.InfinityLoungeData }
-    else return false
-  }
-  
-  // Cache
-  const developers = new Set()
-  // Clear Cache
-  setInterval(() => {
-    developers.clear()
-  }, 604800000) // 7 days
-  
-  const getDevelopers = async function(bot)
-  {
-    //if(!developers.size)
-    //{
-      if(!(await validateForData(bot))) return; // if bot exists
-      const arrayOfIds = (await validateForData(bot)).developers
-      const link = "https://discord.com/api/v9/users"
-      let ids = []
-      let profiles = []
-  
-      for(const [key, value] of Object.entries(arrayOfIds))
-      {
-        ids.push(value.id)
-      }
-  
-      for(const id of ids) {
-        const profile = await fetch(`${link}/${id}`, {
-          method: "GET",
-          headers: {
-            Authorization: `Bot ${process.env.SebisTownhallToken}`,
-          },
-        }).then((res) => res.json());
-        profiles.push(profile)
-        developers.add(profile)
-      }
-      return profiles
-    //}
-    //return developers
-  }
+  if (!req.session.user) return res.redirect('/login')
+  else return next();
+}
+
+const validateForData = async function(bot)
+{
+  if(bot == process.env.ThreadManager) { return devs.ThreadManagerData }
+  else if(bot == process.env.Midnight) { return devs.MidnightData }
+  else if(bot == process.env.TipicoX) { return devs.TipicoXData }
+  else if(bot == process.env.InfinityLounge) { return devs.InfinityLoungeData }
+  else return false
+}
+
+// Cache
+const developers = new Set()
+// Clear Cache
+setInterval(() => {
+  developers.clear()
+}, 604800000) // 7 days
+
+const getDevelopers = async function(bot)
+{
+  //if(!developers.size)
+  //{
+    if(!(await validateForData(bot))) return; // if bot exists
+    const arrayOfIds = (await validateForData(bot)).developers
+    const link = "https://discord.com/api/v9/users"
+    let ids = []
+    let profiles = []
+
+    for(const [key, value] of Object.entries(arrayOfIds))
+    {
+      ids.push(value.id)
+    }
+
+    for(const id of ids) {
+      const profile = await fetch(`${link}/${id}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bot ${process.env.SebisTownhallToken}`,
+        },
+      }).then((res) => res.json());
+      profiles.push(profile)
+      developers.add(profile)
+    }
+    return profiles
+  //}
+  //return developers
+}
 
 
 // =============== GET =============== //
@@ -128,16 +128,6 @@ router.get('/', async (req, res) => {
 router.get('/:bot/terms-of-service', async (req, res) => {
   const bot = req.params.bot
   const link = `${bot}/terms-of-service.ejs`
-  if(bot == process.env.ThreadManager) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Thread Manager" }) }
-  else if(bot == process.env.Midnight) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Midnight" }) }
-  else if(bot == process.env.TipicoX) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "TipicoX" }) }
-  else if(bot == process.env.InfinityLounge) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Infinity Lounge" }) }
-  else return res.json({ message: 'Application does not exist' });
-})
-
-router.get('/:bot/index', async (req, res) => {
-  const bot = req.params.bot
-  const link = `${bot}/index.ejs`
   if(bot == process.env.ThreadManager) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Thread Manager" }) }
   else if(bot == process.env.Midnight) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Midnight" }) }
   else if(bot == process.env.TipicoX) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "TipicoX" }) }
