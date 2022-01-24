@@ -128,9 +128,9 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:bot/docs', async (req, res) => {
+  res.cookie('url', req.url)
   const bot = req.params.bot
   const link = `${bot}/docs.ejs`
-  res.cookie('url', req.url)
   if(bot == process.env.ThreadManager) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Thread Manager", botname: process.env.ThreadManager }) }
   else if(bot == process.env.Midnight) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Midnight", botname: process.env.Midnight  }) }
   else if(bot == process.env.TipicoX) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "TipicoX", botname: process.env.TipicoX  }) }
@@ -139,9 +139,9 @@ router.get('/:bot/docs', async (req, res) => {
 })
 
 router.get('/:bot/developers', async (req, res) => {
+  res.cookie('url', req.url)
   const bot = req.params.bot
   const link = `${bot}/developers.ejs`
-  res.cookie('url', req.url)
   const data = await getDevelopers(bot)
   if(!data) { return res.json({ message: 'Application does not exist' }); }
   if(bot == process.env.ThreadManager) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, devs: data, bot: "Thread Manager", botname: process.env.ThreadManager }) }
@@ -152,9 +152,9 @@ router.get('/:bot/developers', async (req, res) => {
 })
 
 router.get('/:bot/terms-of-service', async (req, res) => {
+  res.cookie('url', req.url)
   const bot = req.params.bot
   const link = `${bot}/terms-of-service.ejs`
-  res.cookie('url', req.url)
   if(bot == process.env.ThreadManager) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Thread Manager" }) }
   else if(bot == process.env.Midnight) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Midnight" }) }
   else if(bot == process.env.TipicoX) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "TipicoX" }) }
@@ -167,9 +167,9 @@ router.get('/discord', async (req, res) => {
 })
 
 router.get('/:bot/settings', forceAuth, async (req, res) => {
+  res.cookie('url', req.url)
   const bot = req.params.bot
   const link = `${bot}/settings.ejs`
-  res.cookie('url', req.url)
   if(bot == process.env.ThreadManager) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Thread Manager" }) }
   else if(bot == process.env.Midnight) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Midnight" }) }
   else if(bot == process.env.TipicoX) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "TipicoX" }) }
@@ -179,6 +179,7 @@ router.get('/:bot/settings', forceAuth, async (req, res) => {
 
 //If URL not found redirect to index
 router.get('/*', (req, res) => {
+  res.cookie('url', req.url)
   res.redirect('/')
 })
 
