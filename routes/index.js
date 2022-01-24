@@ -23,41 +23,52 @@ const validateForData = async function(bot)
 
 // Cache
 const developers = new Set()
+const stats = new Set()
 // Clear Cache
 setInterval(() => {
   developers.clear()
 }, 604800000) // 7 days
 
+setInterval(() => {
+  stats.clear()
+}, 1000 * 60 * 60) // 1 hour
+
+
+//                      Sebi                  N.T.W                 Itachi                Stern                 Zerul                 MooVoo                Semicolon
+const developersArr = ["280094303429197844", "310115562305093632", "718231134336581692", "472020196119281684", "474732997006852097", "278255521629339650", "603609359989342208"]
 const getDevelopers = async function(bot)
 {
-  //if(!developers.size)
-  //{
-    if(!(await validateForData(bot))) return; // if bot exists
-    const arrayOfIds = (await validateForData(bot)).developers
+  // Get Data from Discord and add into Set
+  if(developers.size !== developersArr.length)
+  {
+    log(pico.yellow("Reloading Discord Dev Data"))
+    if(!(await validateForData(bot))) return; // if bot does not exist
+    const arrayOfIds = developersArr
     const link = "https://discord.com/api/v9/users"
-    let ids = []
-    let profiles = []
 
-    for(const [key, value] of Object.entries(arrayOfIds))
-    {
-      ids.push(value.id)
-    }
-
-    for(const id of ids) {
+    for(const id of arrayOfIds) {
       const profile = await fetch(`${link}/${id}`, {
         method: "GET",
         headers: {
           Authorization: `Bot ${process.env.SebisTownhallToken}`,
         },
       }).then((res) => res.json());
-      profiles.push(profile)
       developers.add(profile)
     }
-    return profiles
-  //}
-  //return developers
-}
+    log(pico.yellow("Discord Dev Data Reload Successful!"))
+  }
 
+  // Load Requested Developers
+  const needed = (await validateForData(bot)).developers
+  let all = [...developers]
+  let devsForBot = []
+
+  needed.forEach(item =>  {
+    devsForBot.push((Object.entries(all).find(([key, value]) => value.id === item.id))[1])
+  })
+
+  return devsForBot
+}
 
 // =============== GET =============== //
 
@@ -123,7 +134,7 @@ router.get('/', async (req, res) => {
     tipicoxinvite: process.env.TipicoInvite,
     infinityloungeinvite: process.env.InfinityLoungeInvite,
     invite: process.env.DISCORD_INVITE,
-    user: req.session.user
+    user: req.session.user,
   })
 });
 

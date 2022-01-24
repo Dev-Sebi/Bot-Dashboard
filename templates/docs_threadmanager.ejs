@@ -1,0 +1,208 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Basic Commands</h5>
+        <div class="accordion accordion-flush" id="accordionFlushBasic">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingHelp">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseHelp" aria-expanded="false" aria-controls="flush-collapseHelp">
+                        /Help
+                    </button>
+                </h2>
+                <div id="flush-collapseHelp" class="accordion-collapse collapse" aria-labelledby="flush-headingHelp"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Returns you the Help-page for the Bot.</div>
+                </div>
+            </div>
+            
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingInvite">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseInvite" aria-expanded="false" aria-controls="flush-collapseInvite">
+                        /Invite
+                    </button>
+                </h2>
+                <div id="flush-collapseInvite" class="accordion-collapse collapse" aria-labelledby="flush-headingInvite"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Returns an Invite for the Bot.</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingStats">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseStats" aria-expanded="false" aria-controls="flush-collapseStats">
+                        /Stats
+                    </button>
+                </h2>
+                <div id="flush-collapseStats" class="accordion-collapse collapse" aria-labelledby="flush-headingStats"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Returns the amount of Users, Servers and Average Users per Server of the bot, also including Uptime.</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingVote">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseVote" aria-expanded="false" aria-controls="flush-collapseVote">
+                        /Vote
+                    </button>
+                </h2>
+                <div id="flush-collapseVote" class="accordion-collapse collapse" aria-labelledby="flush-headingVote"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Vote for the Bot :)</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSlowmode">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseSlowmode" aria-expanded="false" aria-controls="flush-collapseSlowmode">
+                        /Slowmode off
+                    </button>
+                </h2>
+                <div id="flush-collapseSlowmode" class="accordion-collapse collapse" aria-labelledby="flush-headingSlowmode"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Removes the Slowmode in the current Channel</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Commands With Arguments</h5>
+        <div class="accordion accordion-flush" id="accordionFlushArguments">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingInfractions">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseInfractions" aria-expanded="false" aria-controls="flush-collapseInfractions">
+                        /Message <code>&nbsp;[type]<sup>*</sup>&nbsp;</code>-<code>&nbsp;[message]<sup>*</sup>&nbsp;</code>-<code>&nbsp;[title]&nbsp;</code>-<code>&nbsp;[attachment]&nbsp;</code>
+                    </button>
+                </h2>
+                <div id="flush-collapseInfractions" class="accordion-collapse collapse" aria-labelledby="flush-headingInfractions"
+                    data-bs-parent="#accordionFlushArguments">
+                    <div class="accordion-body">
+                        Set a custom Message sent in every newly created Thread.
+                        <hr>
+                        <code>[type]</code> = Message / Embed. <br> <br>
+                        <code>[message]</code> = The Message that will be sent. <br> <br>
+                        <code>[title]</code> = The Title of the Message. <br> <br>
+                        <code>[attachment]</code> = The Attachment that will be sent with the Message (LINK FORMAT!).
+                        <hr>
+                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingPhotomode">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapsePhotomode" aria-expanded="false" aria-controls="flush-collapsePhotomode">
+                        /Photomode <code>&nbsp;[action]<sup>*</sup>&nbsp;</code>
+                    </button>
+                </h2>
+                <div id="flush-collapsePhotomode" class="accordion-collapse collapse" aria-labelledby="flush-headingPhotomode"
+                    data-bs-parent="#accordionFlushArguments">
+                    <div class="accordion-body">
+                        Enable or Disable Photomode in a Channel. Photomode allows users to only send Messages with Attachments included and creates a Thread to every Message being sent in that Channel.
+                        <hr>
+                        <code>[action]</code> = On / Off
+                        <hr>
+                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSetup">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseSetup" aria-expanded="false" aria-controls="flush-collapseSetup">
+                        /Setup <code>&nbsp;[channel]<sup>*</sup>&nbsp;</code>-<code>&nbsp;[messageupdates]<sup>*</sup>&nbsp;</code>-<code>&nbsp;[mentions]&nbsp;</code>
+                    </button>
+                </h2>
+                <div id="flush-collapseSetup" class="accordion-collapse collapse" aria-labelledby="flush-headingSetup"
+                    data-bs-parent="#accordionFlushArguments">
+                    <div class="accordion-body">
+                        Enable or Disable Photomode in a Channel. Photomode allows users to only send Messages with Attachments included and creates a Thread to every Message being sent in that Channel.
+                        <hr>
+                        <code>[channel]</code> = The Channel for bot logs <br> <br>
+                        <code>[messageupdates]</code> = Should the bot also log Message Updates made within Threads? <br> <br>
+                        <code>[mentions]</code> = Whom to mention if the bot found a bad word?
+                        <hr>
+                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingUserinfo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseUserinfo" aria-expanded="false" aria-controls="flush-collapseUserinfo">
+                        /Userinfo <code>&nbsp;[user]&nbsp;</code>
+                    </button>
+                </h2>
+                <div id="flush-collapseUserinfo" class="accordion-collapse collapse" aria-labelledby="flush-headingUserinfo"
+                    data-bs-parent="#accordionFlushArguments">
+                    <div class="accordion-body">
+                        Lets you configure the Channel the Bot Logs its Data to. For Example when a Phishing Link got Detected and Deleted.
+                        <hr>
+                        <code>[user]</code> = A User Object
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSlowmodeOn">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseSlowmodeOn" aria-expanded="false" aria-controls="flush-collapseSlowmodeOn">
+                        /Slowmode on <code>&nbsp;[time]<sup>*</sup>&nbsp;</code>-<code>&nbsp;[unit]<sup>*</sup>&nbsp;</code>
+                    </button>
+                </h2>
+                <div id="flush-collapseSlowmodeOn" class="accordion-collapse collapse" aria-labelledby="flush-headingSlowmodeOn"
+                    data-bs-parent="#accordionFlushArguments">
+                    <div class="accordion-body">
+                        Set the Slowmode for the current Channel.
+                        <hr>
+                        <code>[time]</code> = Integer (Number) <br> <br>
+                        <code>[unit]</code> = Time Unit (Seconds, Minutes and Hours)
+                        <hr>
+                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingWatch">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseWatch" aria-expanded="false" aria-controls="flush-collapseWatch">
+                        /Watch <code>&nbsp;[action]<sup>*</sup></code>
+                    </button>
+                </h2>
+                <div id="flush-collapseWatch" class="accordion-collapse collapse" aria-labelledby="flush-headingWatch"
+                    data-bs-parent="#accordionFlushArguments">
+                    <div class="accordion-body">
+                        If you start watching a thread it will be prevented from archiving itself. The command provides a "list" parameter which gives you the full list of Threads currently being watched.
+                        <hr>
+                        <code>[action]</code> = Start / Stop / All / List
+                        <hr>
+                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
