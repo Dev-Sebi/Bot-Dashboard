@@ -5,8 +5,23 @@ const FormData = require("form-data")
 const log = console.log;
 const devs = require('../botdata');
 
-// =============== FUNCTIONS =============== //
 
+// =============== CACHE =============== //
+const developers = new Set()
+const stats = new Map()
+
+
+// Clear Cache
+setInterval(async () => {
+  developers.clear()
+}, 604800000) // 7 days
+
+setInterval(async () => {
+  stats.clear()
+  await getStats()
+}, 1000 * 60) // 1 Minute
+
+// =============== FUNCTIONS =============== //
 const forceAuth = (req, res, next) => { // Only connect with login
   if (!req.session.user) return res.redirect('/login')
   else return next();
@@ -20,20 +35,6 @@ const validateForData = async function(bot)
   else if(bot == process.env.InfinityLounge) { return devs.InfinityLoungeData }
   else return false
 }
-
-// Cache
-const developers = new Set()
-const stats = new Set()
-// Clear Cache
-setInterval(() => {
-  developers.clear()
-}, 604800000) // 7 days
-
-setInterval(() => {
-  stats.clear()
-}, 1000 * 60 * 60) // 1 hour
-
-
 //                      Sebi                  N.T.W                 Itachi                Stern                 Zerul                 MooVoo                Semicolon
 const developersArr = ["280094303429197844", "310115562305093632", "718231134336581692", "472020196119281684", "474732997006852097", "278255521629339650", "603609359989342208"]
 const getDevelopers = async function(bot)
@@ -69,6 +70,34 @@ const getDevelopers = async function(bot)
 
   return devsForBot
 }
+
+const getStats = async function(){
+  if(stats.length !== 4)
+  {
+    stats.clear()
+      const Midnight = await fetch("http://localhost:1000/stats", {
+      method: "GET",
+    }).then((res) => res.json()).catch((err) => function(){return});
+    stats.set("Midnight", Midnight)
+
+    const InfinityLounge = await fetch("http://localhost:1001/stats", {
+      method: "GET",
+    }).then((res) => res.json()).catch((err) => function(){return});
+    stats.set("InfinityLounge", InfinityLounge)
+
+    const TipicoX = await fetch("http://localhost:1002/stats", {
+      method: "GET",
+    }).then((res) => res.json()).catch((err) => function(){return});
+    stats.set("TipicoX", TipicoX)
+
+    const ThreadManager = await fetch("http://localhost:1003/stats", {
+      method: "GET",
+    }).then((res) => res.json()).catch((err) => function(){return});
+    stats.set("ThreadManager", ThreadManager)
+  }
+  return stats;
+}
+
 
 // =============== GET =============== //
 
@@ -135,6 +164,7 @@ router.get('/', async (req, res) => {
     infinityloungeinvite: process.env.InfinityLoungeInvite,
     invite: process.env.DISCORD_INVITE,
     user: req.session.user,
+    botstats: await getStats()
   })
 });
 

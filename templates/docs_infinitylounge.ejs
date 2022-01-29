@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">Basic Commands</h5>
+        <h5 class="card-title">SFW Commands <sub>(Safe for Work)</sub></h5>
         <div class="accordion accordion-flush" id="accordionFlushBasic">
 
             <div class="accordion-item">
@@ -12,7 +12,7 @@
                 </h2>
                 <div id="flush-collapseHelp" class="accordion-collapse collapse" aria-labelledby="flush-headingHelp"
                     data-bs-parent="#accordionFlushBasic">
-                    <div class="accordion-body">Returns you the Help-page for the Bot.</div>
+                    <div class="accordion-body">Returns the Help-page of the Bot.</div>
                 </div>
             </div>
             
@@ -26,7 +26,7 @@
                 </h2>
                 <div id="flush-collapseInvite" class="accordion-collapse collapse" aria-labelledby="flush-headingInvite"
                     data-bs-parent="#accordionFlushBasic">
-                    <div class="accordion-body">Returns an Invite for the Bot.</div>
+                    <div class="accordion-body">Sends you an Invite for the Bot.</div>
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
                 </h2>
                 <div id="flush-collapseStats" class="accordion-collapse collapse" aria-labelledby="flush-headingStats"
                     data-bs-parent="#accordionFlushBasic">
-                    <div class="accordion-body">Returns the amount of Users, Servers and Average Users per Server of the bot, also including Uptime.</div>
+                    <div class="accordion-body">Shows you the Stats of the Bot.</div>
                 </div>
             </div>
 
@@ -54,126 +54,358 @@
                 </h2>
                 <div id="flush-collapseVote" class="accordion-collapse collapse" aria-labelledby="flush-headingVote"
                     data-bs-parent="#accordionFlushBasic">
-                    <div class="accordion-body">Vote for the Bot :)</div>
+                    <div class="accordion-body">Vote for the Bot.</div>
                 </div>
             </div>
 
 
-        </div>
-    </div>
-</div>
-
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Commands With Arguments</h5>
-        <div class="accordion accordion-flush" id="accordionFlushArguments">
-
             <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingInfractions">
+                <h2 class="accordion-header" id="flush-headingFact">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseInfractions" aria-expanded="false" aria-controls="flush-collapseInfractions">
-                        /Infractions <code>&nbsp;[user]<sup>*</sup>&nbsp;</code>
+                        data-bs-target="#flush-collapseFact" aria-expanded="false" aria-controls="flush-collapseFact">
+                        /Fact
                     </button>
                 </h2>
-                <div id="flush-collapseInfractions" class="accordion-collapse collapse" aria-labelledby="flush-headingInfractions"
-                    data-bs-parent="#accordionFlushArguments">
-                    <div class="accordion-body">
-                        Returns you the Infractions and General Information about a certain User.
-                        <br>
-                        <br>
-                        <code>[user]</code> = A User Object.
-                        <br>
-                        <br>
-                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
-                    </div>
-                    
+                <div id="flush-collapseFact" class="accordion-collapse collapse" aria-labelledby="flush-headingFact"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Sends you a random Fact.</div>
                 </div>
             </div>
             
 
             <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingPunishment">
+                <h2 class="accordion-header" id="flush-headingOwoify">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapsePunishment" aria-expanded="false" aria-controls="flush-collapsePunishment">
-                        /Punishment <code>&nbsp;[option]<sup>*</sup>&nbsp;</code>
+                        data-bs-target="#flush-collapseOwoify" aria-expanded="false" aria-controls="flush-collapseOwoify">
+                        /Owoify
                     </button>
                 </h2>
-                <div id="flush-collapsePunishment" class="accordion-collapse collapse" aria-labelledby="flush-headingPunishment"
-                    data-bs-parent="#accordionFlushArguments">
-                    <div class="accordion-body">
-                        Lets you configure the Punishment the Bot gives once a Phishing or Scam link is found.
-                        <br>
-                        <br>
-                        <code>[option]</code> = Mute (60s, 5min, 10min, 1h, 1d, 1w), Kick, Ban, Clear Punishment. 
-                        <br>
-                        <br>
-                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
-                    </div>
+                <div id="flush-collapseOwoify" class="accordion-collapse collapse" aria-labelledby="flush-headingOwoify"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Owoifies a Text.</div>
                 </div>
             </div>
 
+
             <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingScammer">
+                <h2 class="accordion-header" id="flush-headingSpoiler">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseScammer" aria-expanded="false" aria-controls="flush-collapseScammer">
-                        /Scammer <code>&nbsp;[option]<sup>*</sup>&nbsp;</code>
+                        data-bs-target="#flush-collapseSpoiler" aria-expanded="false" aria-controls="flush-collapseSpoiler">
+                        /Spoiler
                     </button>
                 </h2>
-                <div id="flush-collapseScammer" class="accordion-collapse collapse" aria-labelledby="flush-headingScammer"
-                    data-bs-parent="#accordionFlushArguments">
-                    <div class="accordion-body">
-                        Lets you configure the Action done to a User, if flagged as Scammer when joining your Server or also when already in your Server sending Phish Links.
-                        <br>
-                        <br>
-                        <code>[option]</code> = Mute (60s, 5min, 10min, 1h, 1d, 1w), Kick, Ban, Clear Punishment. 
-                        <br>
-                        <br>
-                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
-                    </div>
+                <div id="flush-collapseSpoiler" class="accordion-collapse collapse" aria-labelledby="flush-headingSpoiler"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Spoiler some letters!</div>
                 </div>
             </div>
 
+
             <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingSetchannel">
+                <h2 class="accordion-header" id="flush-headingAvatar">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseSetchannel" aria-expanded="false" aria-controls="flush-collapseSetchannel">
-                        /Setchannel <code>&nbsp;[channel]<sup>*</sup>&nbsp;</code>
+                        data-bs-target="#flush-collapseAvatar" aria-expanded="false" aria-controls="flush-collapseAvatar">
+                        /Avatar
                     </button>
                 </h2>
-                <div id="flush-collapseSetchannel" class="accordion-collapse collapse" aria-labelledby="flush-headingSetchannel"
-                    data-bs-parent="#accordionFlushArguments">
-                    <div class="accordion-body">
-                        Lets you configure the Channel the Bot Logs its Data to. For Example when a Phishing Link got Detected and Deleted.
-                        <br>
-                        <br>
-                        <code>[channel]</code> = A Channel Object
-                        <br>
-                        <br>
-                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
-                    </div>
+                <div id="flush-collapseAvatar" class="accordion-collapse collapse" aria-labelledby="flush-headingAvatar"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">You need a new Avatar? this returns you a random picture for a Pfp!</div>
                 </div>
             </div>
 
+
             <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingSubmitPhish">
+                <h2 class="accordion-header" id="flush-headingBaka">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseSubmitPhish" aria-expanded="false" aria-controls="flush-collapseSubmitPhish">
-                        /Submit-Phish <code>&nbsp;[link]<sup>*</sup>&nbsp;</code>
+                        data-bs-target="#flush-collapseBaka" aria-expanded="false" aria-controls="flush-collapseBaka">
+                        /Baka
                     </button>
                 </h2>
-                <div id="flush-collapseSubmitPhish" class="accordion-collapse collapse" aria-labelledby="flush-headingSubmitPhish"
-                    data-bs-parent="#accordionFlushArguments">
-                    <div class="accordion-body">
-                        Submit Scamming or Phishing Links for the Developers to review. If confirmed Phishing or Scamming will be added to our public API Tool.
-                        <br>
-                        <br>
-                        <code>[link]</code> = A Valid Link
-                        <br>
-                        <br>
-                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
-                    </div>
+                <div id="flush-collapseBaka" class="accordion-collapse collapse" aria-labelledby="flush-headingBaka"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Sends you a random Baka Image.</div>
                 </div>
             </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingCat">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseCat" aria-expanded="false" aria-controls="flush-collapseCat">
+                        /Cat
+                    </button>
+                </h2>
+                <div id="flush-collapseCat" class="accordion-collapse collapse" aria-labelledby="flush-headingCat"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Sends you a random Cat Picture!</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingCuddle">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseCuddle" aria-expanded="false" aria-controls="flush-collapseCuddle">
+                        /Cuddle
+                    </button>
+                </h2>
+                <div id="flush-collapseCuddle" class="accordion-collapse collapse" aria-labelledby="flush-headingCuddle"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Cuddle someone. (Sends a random cuddle GIF/Image)</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingDog">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseDog" aria-expanded="false" aria-controls="flush-collapseDog">
+                        /Dog
+                    </button>
+                </h2>
+                <div id="flush-collapseDog" class="accordion-collapse collapse" aria-labelledby="flush-headingDog"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Send a random Picture of a Dog.</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFeed">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseFeed" aria-expanded="false" aria-controls="flush-collapseFeed">
+                        /Feed
+                    </button>
+                </h2>
+                <div id="flush-collapseFeed" class="accordion-collapse collapse" aria-labelledby="flush-headingFeed"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Feed someone!</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFoxGirl">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseFoxGirl" aria-expanded="false" aria-controls="flush-collapseFoxGirl">
+                        /FoxGirl
+                    </button>
+                </h2>
+                <div id="flush-collapseFoxGirl" class="accordion-collapse collapse" aria-labelledby="flush-headingFoxGirl"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Sends you a random FoxGirl Image</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingGecg">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseGecg" aria-expanded="false" aria-controls="flush-collapseGecg">
+                        /Gecg
+                    </button>
+                </h2>
+                <div id="flush-collapseGecg" class="accordion-collapse collapse" aria-labelledby="flush-headingGecg"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Get an Image of a gecg (genetically engineered catgirl)</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingGoose">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseGoose" aria-expanded="false" aria-controls="flush-collapseGoose">
+                        /Goose
+                    </button>
+                </h2>
+                <div id="flush-collapseGoose" class="accordion-collapse collapse" aria-labelledby="flush-headingGoose"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Sends a random Picture of a Goose</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingHolo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseHolo" aria-expanded="false" aria-controls="flush-collapseHolo">
+                        /Holo
+                    </button>
+                </h2>
+                <div id="flush-collapseHolo" class="accordion-collapse collapse" aria-labelledby="flush-headingHolo"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Sends you a random Holo Image / GIF</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingHug">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseHug" aria-expanded="false" aria-controls="flush-collapseHug">
+                        /Hug
+                    </button>
+                </h2>
+                <div id="flush-collapseHug" class="accordion-collapse collapse" aria-labelledby="flush-headingHug"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Hug someone!</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingKemonomimi">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseKemonomimi" aria-expanded="false" aria-controls="flush-collapseKemonomimi">
+                        /Kemonomimi
+                    </button>
+                </h2>
+                <div id="flush-collapseKemonomimi" class="accordion-collapse collapse" aria-labelledby="flush-headingKemonomimi"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Returns you a kemonomimi Image</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingKiss">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseKiss" aria-expanded="false" aria-controls="flush-collapseKiss">
+                        /Kiss
+                    </button>
+                </h2>
+                <div id="flush-collapseKiss" class="accordion-collapse collapse" aria-labelledby="flush-headingKiss"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Kiss someone!</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingLizard">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseLizard" aria-expanded="false" aria-controls="flush-collapseLizard">
+                        /Lizard
+                    </button>
+                </h2>
+                <div id="flush-collapseLizard" class="accordion-collapse collapse" aria-labelledby="flush-headingLizard"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Sends you a random Image of a Lizard.</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingNeko">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseNeko" aria-expanded="false" aria-controls="flush-collapseNeko">
+                        /Neko
+                    </button>
+                </h2>
+                <div id="flush-collapseNeko" class="accordion-collapse collapse" aria-labelledby="flush-headingNeko"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Sends you a random Neko Image.</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingPat">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapsePat" aria-expanded="false" aria-controls="flush-collapsePat">
+                        /Pat
+                    </button>
+                </h2>
+                <div id="flush-collapsePat" class="accordion-collapse collapse" aria-labelledby="flush-headingPat"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Pat someone.</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingPoke">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapsePoke" aria-expanded="false" aria-controls="flush-collapsePoke">
+                        /Poke
+                    </button>
+                </h2>
+                <div id="flush-collapsePoke" class="accordion-collapse collapse" aria-labelledby="flush-headingPoke"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Poke someone.</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSlap">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseSlap" aria-expanded="false" aria-controls="flush-collapseSlap">
+                        /Slap
+                    </button>
+                </h2>
+                <div id="flush-collapseSlap" class="accordion-collapse collapse" aria-labelledby="flush-headingSlap"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Slap someone.</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSmug">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseSmug" aria-expanded="false" aria-controls="flush-collapseSmug">
+                        /Smug
+                    </button>
+                </h2>
+                <div id="flush-collapseSmug" class="accordion-collapse collapse" aria-labelledby="flush-headingSmug"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">A little Smug can't hurt.</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTickle">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTickle" aria-expanded="false" aria-controls="flush-collapseTickle">
+                        /Tickle
+                    </button>
+                </h2>
+                <div id="flush-collapseTickle" class="accordion-collapse collapse" aria-labelledby="flush-headingTickle"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Tickle someone.</div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingWaifu">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseWaifu" aria-expanded="false" aria-controls="flush-collapseWaifu">
+                        /Waifu
+                    </button>
+                </h2>
+                <div id="flush-collapseWaifu" class="accordion-collapse collapse" aria-labelledby="flush-headingWaifu"
+                    data-bs-parent="#accordionFlushBasic">
+                    <div class="accordion-body">Just waifu.</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- NSFW -->
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">NSFW Commands <sub>(Not Safe for Work)</sub></h5>
+        <div class="accordion accordion-flush" id="accordionFlushBasic">
+
+            <p>NSFW Commands are, for safety reasons, not documented here! Please see commands in Discord itself!</p>
 
         </div>
     </div>
