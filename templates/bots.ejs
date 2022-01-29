@@ -6,9 +6,16 @@
                     <h5 class="card-title"> Thread Manager</h5>
                     <p>Thread Manager is a bot that will look over all threads created in your Server, and logs all activities made on or in them.</p>
                     <br>
-                    <p><b>Servers: </b><%= botstats.get("ThreadManager").servers || "offline" %></p>
-                    <p><b>Users: </b><%= botstats.get("ThreadManager").users || "offline" %></p>
-                    <p><b>Average Users/Server: </b><%= botstats.get("ThreadManager").averageUsers || "offline" %></p>
+                    <p><b>Servers: </b><%= botstats.get("ThreadManager").servers || "-" %></p>
+                    <p><b>Users: </b><%= botstats.get("ThreadManager").users || "-" %></p>
+                    <p><b>Average Users/Server: </b><%= botstats.get("ThreadManager").averageUsers || "-" %></p>
+                    <p><b>Status: </b>
+                        <%if(botstats.get("ThreadManager").servers) {%>
+                            <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i> Online </span>
+                        <%} else {%>
+                            <span class="badge bg-danger"><i class="bi bi-exclamation-octagon me-1"></i> Offline </span>
+                        <%}%>
+                    </p>
                     <div class="gap-2 mt-3">
                         <a target="_blank" href="<%= threadmanagerinvite %>"><button class="btn btn-primary"
                                 type="button"><i class="bx bx-chevron-right"></i> Invite Thread Manager</button></a>
@@ -24,9 +31,16 @@
                     <h5 class="card-title">Midnight</h5>
                     <p>A simple Opensource Bot to prevent Scamlinks</p>
                     <br>
-                    <p><b>Servers: </b><%= botstats.get("Midnight").servers || "offline" %></p>
-                    <p><b>Users: </b><%= botstats.get("Midnight").users  || "offline" %></p>
-                    <p><b>Average Users/Server: </b><%= botstats.get("Midnight").averageUsers  || "offline" %></p>
+                    <p><b>Servers: </b><%= botstats.get("Midnight").servers || "-" %></p>
+                    <p><b>Users: </b><%= botstats.get("Midnight").users  || "-" %></p>
+                    <p><b>Average Users/Server: </b><%= botstats.get("Midnight").averageUsers  || "-" %></p>
+                    <p><b>Status: </b>
+                        <%if(botstats.get("Midnight").servers) {%>
+                            <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i> Online </span>
+                        <%} else {%>
+                            <span class="badge bg-danger"><i class="bi bi-exclamation-octagon me-1"></i> Offline </span>
+                        <%}%>
+                    </p>
                     <div class="gap-2 mt-3">
                         <a target="_blank" href="<%= midnightinvite %>"><button class="btn btn-primary" type="button"><i
                                     class="bx bx-chevron-right"></i> Invite Midnight</button></a>
@@ -44,9 +58,16 @@
                     <h5 class="card-title">TipicoX</h5>
                     <p>TipicoX is the next generation Economy bot for your server with many features, jobs and other coming soon, currently in developement!</p>
                     <br>
-                    <p><b>Servers: </b><%= botstats.get("TipicoX").servers  || "offline" %></p>
-                    <p><b>Users: </b><%= botstats.get("TipicoX").users  || "offline" %></p>
-                    <p><b>Average Users/Server: </b><%= botstats.get("TipicoX").averageUsers  || "offline" %></p>
+                    <p><b>Servers: </b><%= botstats.get("TipicoX").servers  || "-" %></p>
+                    <p><b>Users: </b><%= botstats.get("TipicoX").users  || "-" %></p>
+                    <p><b>Average Users/Server: </b><%= botstats.get("TipicoX").averageUsers  || "-" %></p>
+                    <p><b>Status: </b>
+                        <%if(botstats.get("TipicoX").servers) {%>
+                            <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i> Online </span>
+                        <%} else {%>
+                            <span class="badge bg-danger"><i class="bi bi-exclamation-octagon me-1"></i> Offline </span>
+                        <%}%>
+                    </p>
                     <div class="gap-2 mt-3">
                         <a target="_blank" href="<%= tipicoxinvite %>"><button class="btn btn-primary" type="button"><i
                                     class="bx bx-chevron-right"></i> Invite TipicoX</button></a>
@@ -62,9 +83,16 @@
                     <h5 class="card-title">Infinity Lounge</h5>
                     <p>A Fun bot that give your server a huge amount of Fun commands such as Marrying, shipping and more...</p>
                     <br>
-                    <p><b>Servers: </b><%= botstats.get("InfinityLounge").servers  || "offline" %></p>
-                    <p><b>Users: </b><%= botstats.get("InfinityLounge").users  || "offline" %></p>
-                    <p><b>Average Users/Server: </b><%= botstats.get("InfinityLounge").averageUsers  || "offline" %></p>
+                    <p><b>Servers: </b><%= botstats.get("InfinityLounge").servers  || "-" %></p>
+                    <p><b>Users: </b><%= botstats.get("InfinityLounge").users  || "-" %></p>
+                    <p><b>Average Users/Server: </b><%= botstats.get("InfinityLounge").averageUsers  || "-" %></p>
+                    <p><b>Status: </b>
+                        <%if(botstats.get("InfinityLounge").servers) {%>
+                            <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i> Online </span>
+                        <%} else {%>
+                            <span class="badge bg-danger"><i class="bi bi-exclamation-octagon me-1"></i> Offline </span>
+                        <%}%>
+                    </p>
                     <div class="gap-2 mt-3">
                         <a target="_blank" href="<%= infinityloungeinvite %>"><button class="btn btn-primary"
                                 type="button"><i class="bx bx-chevron-right"></i> Invite Infinity Lounge</button></a>
