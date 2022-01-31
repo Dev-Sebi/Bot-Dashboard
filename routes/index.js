@@ -220,7 +220,6 @@ router.get('/:bot/settings', forceAuth, async (req, res) => {
 
 //If URL not found redirect to index
 router.get('/*', (req, res) => {
-  res.cookie('url', req.url)
   res.redirect('/')
 })
 
