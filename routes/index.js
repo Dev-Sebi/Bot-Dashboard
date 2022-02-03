@@ -3,7 +3,7 @@ const pico = require("picocolors")
 const fetch = require("node-fetch")
 const FormData = require("form-data")
 const log = console.log;
-const devs = require('../botdata');
+const devs = require('../BotData');
 
 
 // =============== CACHE =============== //
