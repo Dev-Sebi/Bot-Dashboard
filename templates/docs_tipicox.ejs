@@ -152,19 +152,41 @@
         <div class="accordion accordion-flush" id="accordionFlushArguments">
 
             <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingInfractions">
+                <h2 class="accordion-header" id="flush-headingBalance">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseInfractions" aria-expanded="false" aria-controls="flush-collapseInfractions">
-                        /Infractions <code>&nbsp;[user]<sup>*</sup>&nbsp;</code>
+                        data-bs-target="#flush-collapseBalance" aria-expanded="false" aria-controls="flush-collapseBalance">
+                        /Balance <code>&nbsp;[user]&nbsp;</code>
                     </button>
                 </h2>
-                <div id="flush-collapseInfractions" class="accordion-collapse collapse" aria-labelledby="flush-headingInfractions"
+                <div id="flush-collapseBalance" class="accordion-collapse collapse" aria-labelledby="flush-headingBalance"
                     data-bs-parent="#accordionFlushArguments">
                     <div class="accordion-body">
-                        Returns you the Infractions and General Information about a certain User.
+                        Returns you the Balance and General Information about a certain User.
                         <br>
                         <br>
                         <code>[user]</code> = A User Object.
+                        <br>
+                        <br>
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingDeposit">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseDeposit" aria-expanded="false" aria-controls="flush-collapseDeposit">
+                        /Deposit <code>&nbsp;[amount]<sup>*</sup></code>
+                    </button>
+                </h2>
+                <div id="flush-collapseDeposit" class="accordion-collapse collapse" aria-labelledby="flush-headingDeposit"
+                    data-bs-parent="#accordionFlushArguments">
+                    <div class="accordion-body">
+                        Deposit a certain Amount.
+                        <br>
+                        <br>
+                        <code>[amount]</code> = The Amount you want to Deposit (Integer).
                         <br>
                         <br>
                         <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
@@ -172,9 +194,84 @@
                     
                 </div>
             </div>
-            
 
-            <!-- TO DO !!!!!!!!!!!!!!!!!!! -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingGive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseGive" aria-expanded="false" aria-controls="flush-collapseGive">
+                        /Give <code>&nbsp;[amount]<sup>*</sup>&nbsp;</code>-<code>&nbsp;[user]<sup>*</sup>&nbsp;</code>
+                    </button>
+                </h2>
+                <div id="flush-collapseGive" class="accordion-collapse collapse" aria-labelledby="flush-headingGive"
+                    data-bs-parent="#accordionFlushArguments">
+                    <div class="accordion-body">
+                        Give a certain User a certain amount of money.
+                        <hr>
+                        <code>[amount]</code> = The Amount you want to Give. <br> <br>
+                        <code>[user]</code> = The User you want to give your Money to.
+                        <hr>
+                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingRoulette">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseRoulette" aria-expanded="false" aria-controls="flush-collapseRoulette">
+                        /Roulette <code>&nbsp;[amount]<sup>*</sup>&nbsp;</code>-<code>&nbsp;[bet]<sup>*</sup>&nbsp;</code>
+                    </button>
+                </h2>
+                <div id="flush-collapseRoulette" class="accordion-collapse collapse" aria-labelledby="flush-headingRoulette"
+                    data-bs-parent="#accordionFlushArguments">
+                    <div class="accordion-body">
+                        Play Roulette.
+                        <hr>
+                        <code>[amount]</code> = The Amount you want to bet. <br> <br>
+                        <code>[bet]</code> = What do you want to bet on? for more information see "Roulette-Info".
+                        <hr>
+                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSlots">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseSlots" aria-expanded="false" aria-controls="flush-collapseSlots">
+                        /Slots <code>&nbsp;[amount]<sup>*</sup>&nbsp;</code>
+                    </button>
+                </h2>
+                <div id="flush-collapseSlots" class="accordion-collapse collapse" aria-labelledby="flush-headingSlots"
+                    data-bs-parent="#accordionFlushArguments">
+                    <div class="accordion-body">
+                        Play Slots.
+                        <hr>
+                        <code>[amount]</code> = The Amount you want to bet.
+                        <hr>
+                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingWirthdraw">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseWirthdraw" aria-expanded="false" aria-controls="flush-collapseWirthdraw">
+                        /Wirthdraw <code>&nbsp;[amount]<sup>*</sup>&nbsp;</code>
+                    </button>
+                </h2>
+                <div id="flush-collapseWirthdraw" class="accordion-collapse collapse" aria-labelledby="flush-headingWirthdraw"
+                    data-bs-parent="#accordionFlushArguments">
+                    <div class="accordion-body">
+                        Wirthdraw Money from your Bank.
+                        <hr>
+                        <code>[amount]</code> = The Amount you want to Withdraw.
+                        <hr>
+                        <sub>Arguments marked with<code>&nbsp;*&nbsp;</code>are mandatory!</sub>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
