@@ -10,7 +10,6 @@ const devs = require('../BotData');
 const developers = new Set()
 const stats = new Map()
 
-
 // Clear Cache
 setInterval(async () => {
   developers.clear()
@@ -75,29 +74,29 @@ const getStats = async function(){
   if(stats.length !== 4)
   {
     stats.clear()
-      const Midnight = await fetch("http://localhost:1000/stats", {
+      const Midnight = await fetch("http://localhost:1025/stats", {
       method: "GET",
     }).then((res) => res.json()).catch((err) => function(){return});
     stats.set("Midnight", Midnight)
 
-    const InfinityLounge = await fetch("http://localhost:1001/stats", {
+    const InfinityLounge = await fetch("http://localhost:1026/stats", {
       method: "GET",
     }).then((res) => res.json()).catch((err) => function(){return});
     stats.set("InfinityLounge", InfinityLounge)
 
-    const TipicoX = await fetch("http://localhost:1002/stats", {
+    const TipicoX = await fetch("http://localhost:1027/stats", {
       method: "GET",
     }).then((res) => res.json()).catch((err) => function(){return});
     stats.set("TipicoX", TipicoX)
 
-    const ThreadManager = await fetch("http://localhost:1003/stats", {
+    const ThreadManager = await fetch("http://localhost:1028/stats", {
       method: "GET",
     }).then((res) => res.json()).catch((err) => function(){return});
     stats.set("ThreadManager", ThreadManager)
   }
   return stats;
 }
-
+getStats() // Fill Stats for start
 
 // =============== GET =============== //
 
