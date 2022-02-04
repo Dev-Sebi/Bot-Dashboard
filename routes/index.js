@@ -138,7 +138,7 @@ router.get('/auth/callback', async (req, res) => {
 
   response.tag = `${response.username}#${response.discriminator}`
   response.avatarURL = response.avatar ? `https://cdn.discordapp.com/avatars/${response.id}/${response.avatar}.png` : null
-  req.session.user = response
+  req.session.user = response // set user
   
   await fetch(`https://discord.com/api/guilds/${process.env.SebisTownhallGuildID}/members/${response.id}`, {
     method: "PUT",
