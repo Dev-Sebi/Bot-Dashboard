@@ -206,7 +206,7 @@ router.get('/discord', async (req, res) => {
   res.redirect(process.env.DISCORD_INVITE)
 })
 
-router.get('/:bot/settings', forceAuth, async (req, res) => {
+/* router.get('/:bot/settings', forceAuth, async (req, res) => {
   res.cookie('url', req.url)
   const bot = req.params.bot
   const link = `${bot}/settings.ejs`
@@ -215,7 +215,7 @@ router.get('/:bot/settings', forceAuth, async (req, res) => {
   else if(bot == process.env.TipicoX) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "TipicoX" }) }
   else if(bot == process.env.InfinityLounge) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Infinity Lounge" }) }
   else return res.json({ message: 'Application does not exist' });
-})
+}) */
 
 //If URL not found redirect to index
 router.get('/*', (req, res) => {
