@@ -41,8 +41,8 @@ const getDevelopers = async function(bot)
   // Get Data from Discord and add into Set
   if(developers.size !== developersArr.length)
   {
-    log(pico.yellow("Reloading Discord Dev Data"))
     if(!(await validateForData(bot))) return; // if bot does not exist
+    log(pico.yellow("Reloading Discord Dev Data"))
     const arrayOfIds = developersArr
     const link = "https://discord.com/api/v9/users"
 
