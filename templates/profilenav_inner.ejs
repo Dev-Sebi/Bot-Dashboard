@@ -1,0 +1,80 @@
+<nav class="header-nav ms-auto">
+  <ul class="d-flex align-items-center">
+
+    <li class="nav-item dropdown pe-3">
+      <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+      <%if(user) {%>
+          <img src="<%- user.avatarURL %>" alt="Profile" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle ps-2">Profile</span>
+        </a><!-- End Profile Iamge Icon -->
+      <%} else {%>
+          <span class="d-none d-md-block dropdown-toggle ps-2">Profile</span>
+        </a><!-- End Profile Iamge Icon -->
+      <%}%>
+      
+      
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <%if(user) {%>
+            <li class="dropdown-header">
+              <h6><%- user.tag -%></h6>
+              <span>Version: <%= version %></span><br>
+            </li>
+            <%} else {%>
+              <li class="dropdown-header">
+                <h6>Logged out!</h6>
+                <span>Version: <%= version %></span>
+              </li>
+            <%}%>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+    
+          <%if(user) {%>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/logout">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/threadmanager/docs">
+                <img style="max-height: 26px; margin-right: 6px" src="../../img/threadmanager_tp_nav.png">
+                <span>Thread Manager</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/midnight/docs">
+                <img style="max-height: 26px; margin-right: 6px" src="../../img/midnight_tp_nav.png">
+                <span>Midnight</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/tipicox/docs">
+                <img style="max-height: 26px; margin-right: 6px" src="../../img/tipicox_tp_nav.png">
+                <span>TipicoX</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/infinitylounge/docs">
+                <img style="max-height: 26px; margin-right: 6px" src="../../img/infinitylounge_tp_nav.png">
+                <span>Infinity Lounge</span>
+              </a>
+            </li>
+            <%} else {%>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="/login">
+                  <i class="bi bi-person"></i>
+                  <span>Login with Discord</span>
+                </a>
+              </li>
+            <%}%>
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="<%= invite %>">
+              <i class="bi bi-arrow-right"></i>
+              <span>Join our Server!</span>
+            </a>
+          </li>
+    
+        </ul><!-- End Profile Dropdown Items -->
+    </li><!-- End Profile Nav -->

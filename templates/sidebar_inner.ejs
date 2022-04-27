@@ -5,25 +5,25 @@
 
 <!-- Not Logged In -->
     <li class="nav-item">
-      <a class="nav-link collapsed" href="/">
+      <a class="nav-link collapsed" href="../">
         <i class="bi bi-house-fill"></i>
         <span>Home</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link collapsed" href="docs">
+      <a class="nav-link collapsed" href="../docs">
         <i class="bx bxs-file"></i>
         <span>Documentation</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link collapsed" href="developers">
+      <a class="nav-link collapsed" href="../developers">
         <i class="bi bi-hammer"></i>
         <span>Developers</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link collapsed" href="terms-of-service">
+      <a class="nav-link collapsed" href="../terms-of-service">
         <i class="ri-information-line"></i>
         <span>Terms of Service</span>
       </a>
@@ -37,26 +37,20 @@
 
     
     <!--Needs Login-->
-    <% if(user) {%>
+    <%if(user) {%>
       <hr>
-
-        <% if(botname === "midnight") {%>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="settings">
-            <i class="bi bi-gear-fill"></i>
-            <span>Settings</span>
-          </a>
-        </li>
-        <% } else { %>
-          <a class="nav-link collapsed" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Cooming Soon!">
-            <i class="bi bi-gear-fill"></i>
-            <span>Settings</span>&nbsp;<span class="badge bg-secondary">Soon!</span>
-            </a>
-        <% } %>
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="../settings">
+          <i class="bi bi-gear-fill"></i>
+          <span>Settings</span>
+        </a>
+      </li>
 
 
-    <% } else { %>
+
+      <%} else {%>
         <!--Not Logged In-->
-    <% } %>
+      <%}%>
   </ul>
 </aside><!-- End Sidebar-->

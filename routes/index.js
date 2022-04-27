@@ -4,16 +4,24 @@ const fetch = require("node-fetch")
 const FormData = require("form-data")
 const log = console.log;
 const devs = require('../BotData');
-
+const loadSettings = require('../utils/guildSettings.js')
+const loadBotGuilds = require('../utils/getBotGuilds.js')
+const { thread, mid } = require("../database/connection");
 
 // =============== CACHE =============== //
 const developers = new Set()
 const stats = new Map()
+const guilds = new Map()
+
 
 // Clear Cache
 setInterval(async () => {
   developers.clear()
 }, 604800000) // 7 days
+
+setInterval(async () => {
+  guilds.clear()
+}, 1000 * 60 * 10) // 10 Minuten
 
 setInterval(async () => {
   stats.clear()
@@ -23,7 +31,7 @@ setInterval(async () => {
 // =============== FUNCTIONS =============== //
 const forceAuth = (req, res, next) => { // Only connect with login
   if (!req.session.user) return res.redirect('/login')
-  else return next();
+  return next();
 }
 
 const validateForData = async function(bot)
@@ -110,6 +118,11 @@ router.get("/logout", (req, res) => {
   res.redirect("/")
 })
 
+router.get('/auth/callback/guild', async (req, res) => {
+  const redirectTo = decodeURIComponent(req.cookies.url) || '/';
+  res.redirect(redirectTo)
+})
+
 router.get('/auth/callback', async (req, res) => {
   if (req.session.user) return res.redirect('/');
   const redirectTo = decodeURIComponent(req.cookies.url) || '/';
@@ -138,6 +151,7 @@ router.get('/auth/callback', async (req, res) => {
 
   response.tag = `${response.username}#${response.discriminator}`
   response.avatarURL = response.avatar ? `https://cdn.discordapp.com/avatars/${response.id}/${response.avatar}.png` : null
+  response.access_token = discord_token.access_token
   req.session.user = response // set user
   
   await fetch(`https://discord.com/api/guilds/${process.env.SebisTownhallGuildID}/members/${response.id}`, {
@@ -150,6 +164,133 @@ router.get('/auth/callback', async (req, res) => {
   });
   res.redirect(redirectTo)
 })
+
+router.get("/:bot/settings/:id", forceAuth, async (req, res) => {
+  res.cookie('url', req.url)
+  const bot = req.params.bot
+  let botname = "";
+  if(bot === process.env.ThreadManager) { botname = "Thread Manager" }
+  else if(bot === process.env.Midnight) { botname = "Midnight" }
+  else return res.redirect("/")
+  if(botname == "") return res.redirect("/")
+
+  const serverid = req.params.id;
+  const user = req.session.user;
+  const serverdata = await loadSettings.getGuildSettings(serverid, bot)
+  const botGuilds = await loadBotGuilds.getBotGuilds(bot); // All ID's of Servers the bot is in
+
+  if (!(await guilds.get(`${user.id}-${bot}-guilds`))) {
+    let guildArray = [];
+    const guildsFetch = await fetch("https://discord.com/api/v9/users/@me/guilds", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.access_token}`,
+      },
+    }).then((res) => res.json());
+
+    for (const guild of guildsFetch) {
+      if (parseInt(guild.permissions) & 32) {
+        guild.bot = botGuilds;
+        guildArray.push(guild);
+      }
+    }
+    guilds.set(`${user.id}-${bot}-guilds`, JSON.stringify(guildArray));
+  }
+
+  const guildData = JSON.parse((guilds.get(`${user.id}-${bot}-guilds`))).filter(guild => guild.id === serverid)
+
+  if(bot == process.env.Midnight)
+  {
+    const links_detected = 0
+    const links_deleted = 0
+    const links_scanned = 0
+    const user_punished  = 0
+    const users_prevented_from_joining = 0
+    mid.query(
+      {
+        sql: `SELECT * FROM ${process.env.DB_DATABASENAME} WHERE id=?`,
+        timeout: 10000, // 10s
+        values: [serverid],
+      },
+      async function (err, result, fields) {
+          if (err) throw err;
+          res.render(`${bot}/settings_guild.ejs`, {
+            links_detected: parseInt(result[0].links_detected),
+            links_deleted: parseInt(result[0].links_deleted),
+            links_scanned: parseInt(result[0].links_scanned),
+            users_punished : parseInt(result[0].users_punished),
+            users_prevented_from_joining: parseInt(result[0].users_prevented_from_joining),
+            botname,
+            bot,
+            version: process.env.DASHBOARD_VERSION,
+            date: new Date().toDateString(),
+            invite: process.env.DISCORD_INVITE,
+            user: req.session.user,
+            guild: guildData[0],
+            serverid,
+          })
+      })
+  }
+  else
+  {
+    res.send("Nope!")
+    /*
+    res.render(`${bot}/settings_guild.ejs`, {
+      botname,
+      bot,
+      version: process.env.DASHBOARD_VERSION,
+      date: new Date().toDateString(),
+      invite: process.env.DISCORD_INVITE,
+      user: req.session.user,
+      guild: guildData[0],
+      serverid,
+    })*/
+  }
+});
+
+router.get("/:bot/settings/", forceAuth, async (req, res) => {
+  res.cookie('url', req.url)
+  const bot = req.params.bot
+  let botname = "";
+  if(bot === process.env.ThreadManager) { botname = "Thread Manager" }
+  else if(bot === process.env.Midnight) { botname = "Midnight" }
+  else return res.redirect("/")
+  if(botname == "") return res.redirect("/")
+
+  const user = req.session.user;
+  const botGuilds = await loadBotGuilds.getBotGuilds(bot); // All ID's of Servers the bot is in
+
+  if (!(await guilds.get(`${user.id}-${bot}-guilds`))) {
+    //https://discord.com/api/v9/users/@me/guilds
+    let guildArray = [];
+    const guildsFetch = await fetch("https://discord.com/api/v9/users/@me/guilds", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.access_token}`,
+      },
+    }).then((res) => res.json());
+
+    for (const guild of guildsFetch) {
+      if (parseInt(guild.permissions) & 32) {
+        guild.bot = botGuilds;
+        guildArray.push(guild);
+      }
+    }
+    guilds.set(`${user.id}-${bot}-guilds`, JSON.stringify(guildArray));
+  }
+
+  res.render(`${bot}/settings.ejs`, {
+    botname: botname,
+    bot,
+    version: process.env.DASHBOARD_VERSION,
+    date: new Date().toDateString(),
+    threadmanagerinvite: process.env.ThreadManagerInvite,
+    midnightinvite: process.env.MidnightInvite,
+    invite: process.env.DISCORD_INVITE,
+    user,
+    guilds: await guilds.get(`${user.id}-${bot}-guilds`),
+  })
+});
 
 router.get('/', async (req, res) => {
   res.cookie('url', req.url)
@@ -205,17 +346,6 @@ router.get('/:bot/terms-of-service', async (req, res) => {
 router.get('/discord', async (req, res) => {
   res.redirect(process.env.DISCORD_INVITE)
 })
-
-/* router.get('/:bot/settings', forceAuth, async (req, res) => {
-  res.cookie('url', req.url)
-  const bot = req.params.bot
-  const link = `${bot}/settings.ejs`
-  if(bot == process.env.ThreadManager) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Thread Manager" }) }
-  else if(bot == process.env.Midnight) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Midnight" }) }
-  else if(bot == process.env.TipicoX) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "TipicoX" }) }
-  else if(bot == process.env.InfinityLounge) { res.render(link, { invite: process.env.DISCORD_INVITE, version: process.env.DASHBOARD_VERSION, user: req.session.user, bot: "Infinity Lounge" }) }
-  else return res.json({ message: 'Application does not exist' });
-}) */
 
 //If URL not found redirect to index
 router.get('/*', (req, res) => {

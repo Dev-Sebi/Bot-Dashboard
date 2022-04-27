@@ -23,6 +23,7 @@
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "form-data": "^4.0.0",
+    "mysql": "^2.18.1",
     "node-fetch": "^2.6.7",
     "nodemon": "^2.0.15",
     "picocolors": "^1.0.0"
