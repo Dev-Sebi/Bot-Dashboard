@@ -133,8 +133,8 @@ router.get('/auth/callback', async (req, res) => {
   data.append("client_id", process.env.SebisTownhallID);
   data.append("client_secret", process.env.SebisTownhallSecret);
   data.append("grant_type", "authorization_code");
-  data.append("redirect_uri", process.env.LOCAL_AUTH_REDIRECT);
-  //data.append("redirect_uri", process.env.AUTH_REDIRECT);
+  data.append("redirect_uri", process.env.LOCAL_AUTH_REDIRECT); // Prod Recirect
+  //data.append("redirect_uri", process.env.AUTH_REDIRECT); // Local Redirect
   data.append("scope", "guilds.join identify guilds"); // split every needed scope with space
   data.append("code", code);
   

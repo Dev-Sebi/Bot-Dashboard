@@ -37,20 +37,26 @@
 
     
     <!--Needs Login-->
-    <%if(user) {%>
+    <% if(user) {%>
       <hr>
-      
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="../settings">
-          <i class="bi bi-gear-fill"></i>
-          <span>Settings</span>
-        </a>
-      </li>
+
+        <% if(botname === "midnight") {%>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="settings">
+            <i class="bi bi-gear-fill"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+        <% } else { %>
+          <a class="nav-link collapsed" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Cooming Soon!">
+            <i class="bi bi-gear-fill"></i>
+            <span>Settings</span>&nbsp;<span class="badge bg-secondary">Soon!</span>
+            </a>
+        <% } %>
 
 
-
-      <%} else {%>
+    <% } else { %>
         <!--Not Logged In-->
-      <%}%>
+    <% } %>
   </ul>
 </aside><!-- End Sidebar-->
